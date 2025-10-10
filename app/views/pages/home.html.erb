@@ -1,0 +1,31 @@
+<div class="hero">
+  <h1>Fail Forward</h1>
+  <p>Провал — это не конец, а данные для роста. Истории неудач вместо осуждения.</p>
+</div>
+
+<div class="content-grid">
+  <section class="recent-posts">
+    <h2>🔥 Последние посты</h2>
+    <% @posts.each do |post| %>
+      <article class="post-card">
+        <h3><%= link_to post.title, post_path(post) %></h3>
+        <p><%= truncate(post.content, length: 200) %></p>
+        <div class="post-meta">
+          <span class="category">📁 <%= post.category.name %></span>
+        </div>
+      </article>
+    <% end %>
+    <%= link_to "Все посты →", posts_path, style: "color: #3498db; text-decoration: none; font-weight: bold;" %>
+  </section>
+
+  <aside class="sidebar">
+    <section class="categories">
+      <h2>📂 Категории</h2>
+      <ul>
+        <% @categories.each do |category| %>
+          <li><%= link_to category.name, category_path(category) %></li>
+        <% end %>
+      </ul>
+    </section>
+  </aside>
+</div>

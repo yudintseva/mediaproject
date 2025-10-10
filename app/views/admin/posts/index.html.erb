@@ -1,0 +1,52 @@
+<h1>🔧 Админ-панель - Управление постами</h1>
+
+<div class="admin-stats">
+  <h2>📊 Статистика сайта:</h2>
+  <p>📝 <strong>Постов:</strong> <%= Post.count %></p>
+  <p>📂 <strong>Категорий:</strong> <%= Category.count %></p>
+  <p>👥 <strong>Пользователей:</strong> <%= User.count %></p>
+  <p>📧 <strong>Подписчиков:</strong> <%= Subscription.count %></p>
+</div>
+
+<div class="admin-actions">
+  <h2>⚡ Действия:</h2>
+  <p><%= link_to "📝 Создать новый пост", new_admin_post_path, class: "btn-primary" %></p>
+</div>
+
+<% if @posts.any? %>
+<div class="posts-list">
+  <h2>📋 Список постов:</h2>
+  
+  <table class="posts-table">
+    <thead>
+      <tr>
+        <th>Заголовок</th>
+        <th>Категория</th>
+        <th>Дата</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><strong><%= post.title %></strong></td>
+          <td><%= post.category.name %></td>
+          <td><%= post.created_at.strftime("%d.%m.%Y") %></td>
+          <td class="actions">
+            <%= link_to "👁️", admin_post_path(post), class: "btn-view" %>
+            <%= link_to "✏️", edit_admin_post_path(post), class: "btn-edit" %>
+            <%= button_to "🗑️", admin_post_path(post), 
+                          method: :delete, 
+                          class: "btn-delete",
+                          form: { data: { turbo_confirm: "Удалить пост '#{post.title}'?" } } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% else %>
+  <p>Нет постов. <%= link_to "Создайте первый пост", new_admin_post_path %>.</p>
+<% end %>
+
+<p><%= link_to "🏠 На главную", root_path %></p>

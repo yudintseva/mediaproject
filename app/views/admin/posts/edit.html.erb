@@ -1,0 +1,23 @@
+<h1>✏️ Редактировать пост</h1>
+
+<%= form_with model: [:admin, @post] do |form| %>
+  <div class="field">
+    <%= form.label :title, "Заголовок" %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content, "Содержание" %>
+    <%= form.text_area :content, rows: 10, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id, "Категория" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Обновить пост", class: "btn" %>
+    <%= link_to "Отмена", admin_posts_path, class: "btn-cancel" %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav>
+      <h1><%= link_to "MediaProject", root_path %></h1>
+      <ul>
+        <li><%= link_to "Главная", root_path %></li>
+        <li><%= link_to "О проекте", about_path %></li>
+        <li><%= link_to "Категории", categories_path %></li>
+        <li><%= link_to "Все посты", posts_path %></li>
+
+      </ul>
+    </nav>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 MediaProject. Все права защищены.</p>
+    </footer>
+  </body>
+</html>
