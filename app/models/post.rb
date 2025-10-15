@@ -13,4 +13,7 @@ class Post < ApplicationRecord
   scope :published, -> { where(status: :published) }
 
   before_validation -> { self.slug ||= title.to_s.parameterize }, on: :create
+  # самый удобный порядок — по дате публикации, если её нет — по дате создания
+scope :recent, -> { order(Arel.sql("COALESCE(published_at, created_at) DESC")) }
+
 end
