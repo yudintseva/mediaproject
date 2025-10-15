@@ -1,0 +1,7 @@
+filetype: pdf
+notation: crowsfoot
+attributes: primary_keys,foreign_keys,content
+inheritance: false
+direct: true
+exclude: schema_migrations,ar_internal_metadata,active_storage_blobs,active_storage_attachments,active_storage_variant_records
+only: users,profiles,categories,posts,attachments,comments,likes,subscriptions

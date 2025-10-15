@@ -1,8 +1,16 @@
 class Post < ApplicationRecord
+  enum :status, { draft: 0, published: 1 }, default: :draft
+
+  belongs_to :user
   belongs_to :category
-  
-  validates :title, presence: true, length: { minimum: 5 }
-  validates :content, presence: true
-  
-  scope :recent, -> { order(created_at: :desc) }
+  has_many :attachments, dependent: :destroy
+  has_many :comments,    dependent: :destroy
+  has_many :likes,       dependent: :destroy
+
+  validates :title, :slug, presence: true
+  validates :slug, uniqueness: true
+
+  scope :published, -> { where(status: :published) }
+
+  before_validation -> { self.slug ||= title.to_s.parameterize }, on: :create
 end
