@@ -405,3 +405,49 @@ EOFcat >> app/assets/stylesheets/application.css << 'EOF'
 .btn-delete:hover {
   background: #c82333;
 }
+/* ----- фикс для Anima ----- */
+
+nav,
+footer {
+  position: relative;
+  z-index: 1000;
+}
+
+.about-page {
+  position: relative;
+  z-index: 2;
+  margin-top: 80px; /* чтобы контент не залез под навигацию */
+  padding-bottom: 100px; /* чтобы футер не перекрывал */
+}
+
+.u1086-u1085u1072u1089.screen {
+  position: relative !important;
+  min-height: 100vh;
+  overflow: visible;
+}
+/* ----- фиксы для Anima, чтобы не прятала header/footer ----- */
+
+nav,
+footer {
+  position: relative;
+  z-index: 1000; /* всегда поверх */
+}
+
+main {
+  position: relative;
+  z-index: 10;
+}
+
+/* отступ, чтобы контент не залезал под навигацию */
+.about-page {
+  position: relative;
+  margin-top: 100px;
+  padding-bottom: 120px; /* чтобы футер не перекрывал */
+  z-index: 5;
+}
+
+/* если Anima ставит body height:100vh — переопределим */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}

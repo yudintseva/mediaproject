@@ -1,0 +1,32 @@
+:root { 
+  --black: #000000;
+  --white: #ffffff;
+ 
+  --font-size-l: 24px;
+  --font-size-m: 20px;
+  --font-size-s: 16px;
+  --font-size-xl: 30px;
+  --font-size-xxl: 62.8px;
+  --font-size-xxxl: 95.3px;
+  --font-size-xxxxl: 333.5px;
+ 
+  --font-family-sf_pro_display-bold: "SF Pro Display-Bold", Helvetica;
+  --font-family-sf_pro_display-bolditalic: "SF Pro Display-BoldItalic", Helvetica;
+  --font-family-sf_pro_display-medium: "SF Pro Display-Medium", Helvetica;
+  --font-family-sf_pro_display-regular: "SF Pro Display-Regular", Helvetica;
+}
+.sfprodisplay-regular-normal-black-20px {
+  color: var(--black);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-medium-black-30px {
+  color: var(--black);
+  font-family: var(--font-family-sf_pro_display-medium);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 500;
+}

@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- Основные стили приложения -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+   
+   <%= yield :head %>
+
+   
+    <!-- JS -->
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "/about/assets/index-D4y50xz6.js", type: "module", crossorigin: "anonymous" %>
   </head>
+
 
   <body>
     <nav>
@@ -17,7 +27,6 @@
         <li><%= link_to "О проекте", about_path %></li>
         <li><%= link_to "Категории", categories_path %></li>
         <li><%= link_to "Все посты", posts_path %></li>
-
       </ul>
     </nav>
 
@@ -28,5 +37,7 @@
     <footer>
       <p>&copy; 2025 MediaProject. Все права защищены.</p>
     </footer>
-  </body>
-</html>
+
+    <!-- JS из Anima — подключаем внизу -->
+    <%=
+

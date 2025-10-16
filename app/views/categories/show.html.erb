@@ -1,2 +1,9 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%= @category.name %></h1>
+
+<% @posts.each do |p| %>
+  <article style="margin:12px 0;">
+    <h3><%= link_to p.title, p %></h3>
+    <p><small>Автор: <%= p.user_id %></small></p>
+    <p><%= truncate(strip_tags(p.body.to_s), length: 200) %></p>
+  </article>
+<% end %>

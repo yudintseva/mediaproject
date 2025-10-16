@@ -3,8 +3,8 @@ class PostDecorator
     @post = post
   end
   
-  def truncated_content(length = 200)
-    @post.content.truncate(length)
+  def   truncated_content(length = 200)
+    @post.body.truncate(length)
   end
   
   def formatted_created_at
